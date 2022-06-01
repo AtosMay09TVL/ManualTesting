@@ -1,0 +1,60 @@
+public class package smartcard;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.support.ui.Select;
+
+
+public class Ex1 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+System.setProperty("webdriver.gecko.driver", "C:\\Users\\syntel\\eclipse-workspace\\Project1\\driver\\geckodriver.exe");
+FirefoxOptions opt = new FirefoxOptions();
+opt.setBinary("C:\\Users\\syntel\\AppData\\Local\\Mozilla Firefox\\firefox.exe");
+WebDriver driver=new FirefoxDriver(opt);
+driver.get("https://www.tnpds.gov.in/");
+driver.findElement(By.xpath("/html/body/div[1]/div[1]/form[1]/div[1]/div/div[2]")).click();
+TimeUnit.SECONDS.sleep(5);
+driver.findElement(By.xpath("/html/body/div[1]/div[1]/form[2]/div[2]/div/div/div[2]/ul[1]/li[2]/a")).click();
+TimeUnit.SECONDS.sleep(5);
+driver.findElement(By.id("form:aname")).sendKeys("abdul");
+driver.findElement(By.id("form:aname")).submit();
+TimeUnit.SECONDS.sleep(5);
+driver.findElement(By.id("form:fhname")).sendKeys("shahul");
+driver.findElement(By.id("form:fhname")).submit();
+TimeUnit.SECONDS.sleep(5);
+driver.findElement(By.id("form:address1")).sendKeys("mount road");
+driver.findElement(By.id("form:address1")).submit();
+TimeUnit.SECONDS.sleep(5);
+driver.findElement(By.id("form:address2")).sendKeys("skp street");
+driver.findElement(By.id("form:address2")).submit();
+TimeUnit.SECONDS.sleep(5);
+driver.findElement(By.id("form:address3")).sendKeys("7ward school");
+driver.findElement(By.id("form:address3")).submit();
+TimeUnit.SECONDS.sleep(5);
+Select district=new Select(driver.findElement(By.id("form:districts")));
+district.selectByValue("34");
+TimeUnit.SECONDS.sleep(5);
+Select taluk=new Select(driver.findElement(By.id("form:taluks")));
+taluk.selectByValue("203");
+TimeUnit.SECONDS.sleep(5);
+Select village=new Select(driver.findElement(By.id("form:villages")));
+village.selectByValue("501634");
+TimeUnit.SECONDS.sleep(5);
+driver.findElement(By.id("form:mobile")).sendKeys("728884270");
+TimeUnit.SECONDS.sleep(3);
+driver.findElement(By.id("form:landLineNo")).sendKeys("57951756154");
+TimeUnit.SECONDS.sleep(5);
+driver.findElement(By.id("form:pin")).sendKeys("51574");
+TimeUnit.SECONDS.sleep(3);
+driver.findElement(By.id("form:mail")).sendKeys("unified_helpdesk@atos.net");
+Select Select=new Select(driver.findElement(By.id("form:cardtype")));
+
+
+
